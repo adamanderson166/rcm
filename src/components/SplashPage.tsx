@@ -125,10 +125,10 @@ const SplashPage: React.FC<SplashPageProps> = ({ onAuthenticated }) => {
         </div>
 
         {/* Features Preview */}
-        <div className="mt-8 grid grid-cols-2 gap-4">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="bg-white/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200">
             <div className="flex items-center mb-2">
-              <BarChart3 className="w-5 h-5 text-blue-600 mr-2" />
+              <BarChart3 className="w-5 h-5 text-blue-600 mr-2 flex-shrink-0" />
               <span className="text-sm font-medium text-gray-700">Analytics</span>
             </div>
             <p className="text-xs text-gray-600">Advanced reporting & insights</p>
@@ -136,7 +136,7 @@ const SplashPage: React.FC<SplashPageProps> = ({ onAuthenticated }) => {
           
           <div className="bg-white/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200">
             <div className="flex items-center mb-2">
-              <Users className="w-5 h-5 text-green-600 mr-2" />
+              <Users className="w-5 h-5 text-green-600 mr-2 flex-shrink-0" />
               <span className="text-sm font-medium text-gray-700">Management</span>
             </div>
             <p className="text-xs text-gray-600">User & role controls</p>
@@ -144,7 +144,7 @@ const SplashPage: React.FC<SplashPageProps> = ({ onAuthenticated }) => {
           
           <div className="bg-white/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200">
             <div className="flex items-center mb-2">
-              <FileText className="w-5 h-5 text-purple-600 mr-2" />
+              <FileText className="w-5 h-5 text-purple-600 mr-2 flex-shrink-0" />
               <span className="text-sm font-medium text-gray-700">Claims</span>
             </div>
             <p className="text-xs text-gray-600">Denial & AR management</p>
@@ -152,7 +152,7 @@ const SplashPage: React.FC<SplashPageProps> = ({ onAuthenticated }) => {
           
           <div className="bg-white/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200">
             <div className="flex items-center mb-2">
-              <Zap className="w-5 h-5 text-orange-600 mr-2" />
+              <Zap className="w-5 h-5 text-orange-600 mr-2 flex-shrink-0" />
               <span className="text-sm font-medium text-gray-700">AI-Powered</span>
             </div>
             <p className="text-xs text-gray-600">Smart automation</p>

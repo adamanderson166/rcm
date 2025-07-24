@@ -263,24 +263,24 @@ const ARDashboard: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Advanced AR & Denial Management</h1>
           <p className="mt-1 text-sm text-gray-500">
             Enterprise-level accounts receivable dashboard for 650+ agencies with 835 integration
           </p>
         </div>
-        <div className="flex space-x-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <button 
             onClick={() => setShow835Modal(true)}
-            className="btn-secondary flex items-center"
+            className="btn-secondary flex items-center justify-center"
           >
             <FileText className="w-4 h-4 mr-2" />
             Import 835
           </button>
           <button 
             onClick={() => setShowExportModal(true)}
-            className="btn-primary flex items-center"
+            className="btn-primary flex items-center justify-center"
           >
             <Download className="w-4 h-4 mr-2" />
             Export Report
@@ -289,7 +289,7 @@ const ARDashboard: React.FC = () => {
       </div>
 
       {/* AR Metrics */}
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-4">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         <div className="metric-card">
           <div className="flex items-center">
             <DollarSign className="h-8 w-8 text-primary-500" />
@@ -330,7 +330,7 @@ const ARDashboard: React.FC = () => {
 
       {/* Search and Filters */}
       <div className="card">
-        <div className="flex flex-col lg:flex-row gap-4">
+        <div className="flex flex-col gap-4">
           <div className="flex-1">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -343,13 +343,13 @@ const ARDashboard: React.FC = () => {
               />
             </div>
           </div>
-          <div className="flex gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
               <select
                 value={selectedStatus}
                 onChange={(e) => setSelectedStatus(e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 text-sm"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm"
               >
                 <option value="all">All Status</option>
                 <option value="pending">Pending</option>
@@ -363,7 +363,7 @@ const ARDashboard: React.FC = () => {
               <select
                 value={selectedAgency}
                 onChange={(e) => setSelectedAgency(e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 text-sm"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm"
               >
                 <option value="all">All Agencies</option>
                 <option value="alpha">Alpha Medical Billing</option>
@@ -377,7 +377,7 @@ const ARDashboard: React.FC = () => {
               <select
                 value={selectedDenialReason}
                 onChange={(e) => setSelectedDenialReason(e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 text-sm"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm"
               >
                 <option value="all">All Reasons</option>
                 <option value="authorization">Missing Authorization</option>
@@ -477,19 +477,19 @@ const ARDashboard: React.FC = () => {
 
       {/* AR Claims Table */}
       <div className="card">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-4">
           <h3 className="text-lg font-medium text-gray-900">AR Claims & Denials</h3>
-          <div className="flex space-x-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <button 
               onClick={handleAgentPerformance}
-              className="btn-secondary flex items-center"
+              className="btn-secondary flex items-center justify-center"
             >
               <BarChartIcon className="w-4 h-4 mr-2" />
               Agent Performance
             </button>
             <button 
               onClick={handleAddClaim}
-              className="btn-primary flex items-center"
+              className="btn-primary flex items-center justify-center"
             >
               <Plus className="w-4 h-4 mr-2" />
               Add Claim
@@ -500,43 +500,43 @@ const ARDashboard: React.FC = () => {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Claim ID
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Patient
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="hidden sm:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Provider
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="hidden lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Agency
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Amount
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Status
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="hidden lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Denial Reason
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="hidden xl:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   CARC Code
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="hidden lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Assigned To
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="hidden xl:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Touches
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="hidden sm:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Aging
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="hidden lg:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Priority
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Actions
                 </th>
               </tr>
@@ -544,54 +544,54 @@ const ARDashboard: React.FC = () => {
             <tbody className="bg-white divide-y divide-gray-200">
               {filteredData.map((claim) => (
                 <tr key={claim.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     {claim.claimId}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {claim.patient}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {claim.provider}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="hidden lg:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {claim.agency}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     ${claim.amount.toLocaleString()}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-3 sm:px-6 py-4 whitespace-nowrap">
                     {getStatusBadge(claim.status)}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="hidden lg:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {claim.denialReason || '-'}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="hidden xl:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {claim.carcCode || '-'}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="hidden lg:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {claim.assignedTo || '-'}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="hidden xl:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {claim.touches}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="hidden sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {claim.aging} days
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="hidden lg:table-cell px-6 py-4 whitespace-nowrap">
                     {getPriorityBadge(claim.priority)}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <div className="flex space-x-2">
+                  <td className="px-3 sm:px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <div className="flex space-x-1 sm:space-x-2">
                       <button 
                         onClick={() => handleClaimClick(claim)}
-                        className="text-primary-600 hover:text-primary-900"
+                        className="text-primary-600 hover:text-primary-900 p-1"
                       >
                         <Eye className="w-4 h-4" />
                       </button>
-                      <button className="text-primary-600 hover:text-primary-900">
+                      <button className="text-primary-600 hover:text-primary-900 p-1">
                         <Edit className="w-4 h-4" />
                       </button>
-                      <button className="text-primary-600 hover:text-primary-900">
+                      <button className="text-primary-600 hover:text-primary-900 p-1">
                         <RefreshCw className="w-4 h-4" />
                       </button>
                     </div>
